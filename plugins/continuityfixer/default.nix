@@ -16,7 +16,7 @@ in stdenv.mkDerivation rec {
   buildInputs = [ vapoursynth ];
 
   buildPhase = ''
-    c++ -shared -fPIC -O2 -msse2 -mfpmath=sse -I${vapoursynth.dev}/include/vapoursynth \
+    c++ -shared -fPIC -O2 -msse2 -mfpmath=sse -I${vapoursynth}/include/vapoursynth \
         continuity.cpp -o continuity${ext}
   '';
 

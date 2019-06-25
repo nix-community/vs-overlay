@@ -16,7 +16,7 @@ in stdenv.mkDerivation rec {
   buildInputs = [ vapoursynth ];
 
   buildPhase = ''
-    c++ -std=c++11 -shared -fPIC -O2 -I${vapoursynth.dev}/include/vapoursynth \
+    c++ -std=c++11 -shared -fPIC -O2 -I${vapoursynth}/include/vapoursynth \
         descale.cpp -o libdescale${ext}
   '';
 

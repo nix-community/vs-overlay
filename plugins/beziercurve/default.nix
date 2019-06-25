@@ -21,7 +21,7 @@ in stdenv.mkDerivation rec {
   '';
 
   buildPhase = ''
-    c++ -fPIC -shared -I${vapoursynth.dev}/include/vapoursynth \
+    c++ -fPIC -shared -I${vapoursynth}/include/vapoursynth \
         -o VapourSynth-BezierCurve${ext} \
 	      VapourSynth-BezierCurve/BezierCurve.cpp \
         VapourSynth-BezierCurve/CubicBezierCurve.cpp \
