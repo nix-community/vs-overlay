@@ -2,6 +2,7 @@ self: super: {
   vapoursynthPlugins = super.recurseIntoAttrs {
     addgrain = super.callPackage ./plugins/addgrain { };
     autocrop = super.callPackage ./plugins/autocrop { };
+    awarpsharp2 = super.callPackage ./plugins/awarpsharp2 { };
     beziercurve = super.callPackage ./plugins/beziercurve { };
     bifrost = super.callPackage ./plugins/bifrost { };
     bilateral = super.callPackage ./plugins/bilateral { };
