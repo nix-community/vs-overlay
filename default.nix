@@ -7,6 +7,7 @@ self: super: {
     bifrost = super.callPackage ./plugins/bifrost { };
     bilateral = super.callPackage ./plugins/bilateral { };
     bm3d = super.callPackage ./plugins/bm3d { };
+    cnr2 = super.callPackage ./plugins/cnr2 { };
     continuityfixer = super.callPackage ./plugins/continuityfixer { };
     descale = super.callPackage ./plugins/descale { };
     fmtconv = super.callPackage ./plugins/fmtconv { };
