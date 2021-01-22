@@ -1,30 +1,27 @@
-{ stdenv, fetchFromGitHub, vapoursynth, python }:
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, python3 }:
 
-let
-  ext = stdenv.targetPlatform.extensions.sharedLibrary;
-in stdenv.mkDerivation rec {
+# required to make python3.buildEnv use descale’s python module
+python3.pkgs.toPythonModule (stdenv.mkDerivation rec {
   pname = "vapoursynth-descale";
-  version = "r2";
+  version = "r6";
 
   src = fetchFromGitHub {
     owner = "Irrational-Encoding-Wizardry";
     repo = pname;
     rev = version;
-    sha256 = "1vsg6iwbm277hsiawfi6n5h9b7n2n6grl5b287rkb5x2qa88zs0k";
+    sha256 = "093dk125y4gacvhrh10x1i5g2qbsjl4spz74gjjm7xbvrvi1sc72";
   };
 
+  nativeBuildInputs = [ meson ninja pkg-config ];
   buildInputs = [ vapoursynth ];
 
-  buildPhase = ''
-    c++ -std=c++11 -shared -fPIC -O2 -I${vapoursynth}/include/vapoursynth \
-        descale.cpp -o libdescale${ext}
+  postPatch = ''
+    substituteInPlace meson.build \
+        --replace "vs.get_pkgconfig_variable('libdir')" "get_option('libdir')"
   '';
 
-  outputs = [ "out" ];
-
-  installPhase = ''
-    install -D libdescale${ext} $out/lib/vapoursynth/libdescale${ext}
-    install -D descale.py $out/lib/${python.libPrefix}/site-packages/descale.py
+  postInstall = ''
+    install -D ../descale.py $out/${python3.sitePackages}/descale.py
   '';
 
   meta = with lib; {
@@ -34,4 +31,4 @@ in stdenv.mkDerivation rec {
     maintainers = with maintainers; [ tadeokondrak ];
     platforms = platforms.all;
   };
-}
+})
