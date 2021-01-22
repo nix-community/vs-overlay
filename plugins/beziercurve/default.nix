@@ -1,37 +1,18 @@
-{ stdenv, fetchFromGitHub, vapoursynth }:
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
 
-let
-  ext = stdenv.targetPlatform.extensions.sharedLibrary;
-in stdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   pname = "vapoursynth-beziercurve";
-  version = "r2";
+  version = "r3";
 
   src = fetchFromGitHub {
     owner = "kewenyu";
     repo = "VapourSynth-BezierCurve";
     rev = version;
-    sha256 = "0c96gqa3f2wrm2d22q9qwqq3mk8jir7dl4chxqb2kpcjv4wh3xjg";
+    sha256 = "1513ndj7sxwihyxx6x9ciyd8jhw9vs6lhzw7fpl7cz7fdj49wwi6";
   };
 
+  nativeBuildInputs = [ meson ninja pkg-config ];
   buildInputs = [ vapoursynth ];
-
-  patchPhase = ''
-    substituteInPlace VapourSynth-BezierCurve/BezierCurve.h \
-        --replace '<vapoursynth\' '<vapoursynth/'
-  '';
-
-  buildPhase = ''
-    c++ -fPIC -shared -I${vapoursynth}/include/vapoursynth \
-        -o VapourSynth-BezierCurve${ext} \
-	      VapourSynth-BezierCurve/BezierCurve.cpp \
-        VapourSynth-BezierCurve/CubicBezierCurve.cpp \
-        VapourSynth-BezierCurve/QuadraticBezierCurve.cpp \
-        VapourSynth-BezierCurve/VapourSynth-BezierCurve.cpp
-  '';
-
-  installPhase = ''
-    install -D VapourSynth-BezierCurve${ext} $out/lib/vapoursynth/VapourSynth-BezierCurve${ext}
-  '';
 
   meta = with lib; {
     description = "A bézier curve plugin for VapourSynth";
