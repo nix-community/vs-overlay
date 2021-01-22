@@ -14,12 +14,10 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ meson ninja pkg-config ];
   buildInputs = [ vapoursynth boost opencl-headers ocl-icd ];
 
-  installPhase =
-    let
-      ext = stdenv.targetPlatform.extensions.sharedLibrary;
-    in ''
-      install -D libeedi3m${ext} $out/lib/vapoursynth/libeedi3m${ext}
-    '';
+  postPatch = ''
+    substituteInPlace meson.build \
+        --replace "vapoursynth_dep.get_pkgconfig_variable('libdir')" "get_option('libdir')"
+  '';
 
   meta = with lib; {
     description = "Renewed EEDI3 filter for VapourSynth";
