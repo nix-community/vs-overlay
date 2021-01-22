@@ -33,7 +33,7 @@ in stdenv.mkDerivation rec {
     install -D VapourSynth-BezierCurve${ext} $out/lib/vapoursynth/VapourSynth-BezierCurve${ext}
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A bézier curve plugin for VapourSynth";
     homepage = https://github.com/kewenyu/VapourSynth-BezierCurve;
     license = licenses.mit;

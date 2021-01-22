@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
       install -D libeedi3m${ext} $out/lib/vapoursynth/libeedi3m${ext}
     '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Renewed EEDI3 filter for VapourSynth";
     homepage = https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI3;
     license = licenses.gpl2;
