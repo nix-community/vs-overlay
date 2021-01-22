@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
       install -D libtcanny${ext} $out/lib/vapoursynth/libtcanny${ext}
     '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "TCanny filter for VapourSynth";
     homepage = https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny;
     license = licenses.gpl2;

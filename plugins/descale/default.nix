@@ -27,7 +27,7 @@ in stdenv.mkDerivation rec {
     install -D descale.py $out/lib/${python.libPrefix}/site-packages/descale.py
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "VapourSynth plugin to undo upscaling";
     homepage = https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale;
     license = licenses.wtfpl;

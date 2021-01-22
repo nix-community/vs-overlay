@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, fftwSinglePrec }:
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, fftwSinglePrec }:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-bm3d";
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
       install -D libbm3d${ext} $out/lib/vapoursynth/libbm3d${ext}
     '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "BM3D denoising filter for VapourSynth";
     homepage = https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D;
     license = licenses.mit;

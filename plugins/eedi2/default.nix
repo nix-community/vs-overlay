@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-eedi2";
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
       install -D libeedi2${ext} $out/lib/vapoursynth/libeedi2${ext}
     '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "EEDI2 filter for VapourSynth";
     homepage = https://github.com/HomeOfVapourSynthEvolution/VapourSynth-EEDI2;
     license = licenses.gpl2;
