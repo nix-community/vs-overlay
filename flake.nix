@@ -9,6 +9,7 @@
         import nixpkgs {
           inherit system;
           overlays = [ self.overlay ];
+          config.allowUnfree = true;
         }
       );
     in
