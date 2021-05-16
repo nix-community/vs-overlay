@@ -14,6 +14,7 @@ in
     bm3d = super.callPackage ./plugins/bm3d { };
     cas = super.callPackage ./plugins/cas { };
     cnr2 = super.callPackage ./plugins/cnr2 { };
+    combmask = super.callPackage ./plugins/combmask { };
     continuityfixer = super.callPackage ./plugins/continuityfixer { };
     ctmf = super.callPackage ./plugins/ctmf { };
     d2vsource = super.callPackage ./plugins/d2vsource { };
