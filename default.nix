@@ -59,6 +59,7 @@ in
     vsTAAmbk = callPythonPackage ./plugins/vsTAAmbk { };
     vsutil = callPythonPackage ./plugins/vsutil { };
 
+    awsmfunc = callPythonPackage ./plugins/awsmfunc { };
     fvsfunc = callPythonPackage ./plugins/fvsfunc { };
     havsfunc = callPythonPackage ./plugins/havsfunc { };
     kagefunc = callPythonPackage ./plugins/kagefunc { };
