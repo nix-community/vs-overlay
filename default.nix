@@ -39,6 +39,7 @@ in
     placebo = super.callPackage ./plugins/placebo { };
     retinex = super.callPackage ./plugins/retinex { };
     sangnom = super.callPackage ./plugins/sangnom { };
+    scxvid = super.callPackage ./plugins/scxvid { };
     tcanny = super.callPackage ./plugins/tcanny { };
     tnlmeans = super.callPackage ./plugins/tnlmeans { };
     ttempsmooth = super.callPackage ./plugins/ttempsmooth { };
