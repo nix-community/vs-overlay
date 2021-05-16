@@ -37,6 +37,7 @@ in
     nnedi3 = super.callPackage ./plugins/nnedi3 { };
     nnedi3cl = super.callPackage ./plugins/nnedi3cl { };
     placebo = super.callPackage ./plugins/placebo { };
+    remap = super.callPackage ./plugins/remap { };
     retinex = super.callPackage ./plugins/retinex { };
     sangnom = super.callPackage ./plugins/sangnom { };
     scxvid = super.callPackage ./plugins/scxvid { };
