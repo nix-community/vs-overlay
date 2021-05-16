@@ -16,6 +16,7 @@ in
     cnr2 = super.callPackage ./plugins/cnr2 { };
     continuityfixer = super.callPackage ./plugins/continuityfixer { };
     ctmf = super.callPackage ./plugins/ctmf { };
+    d2vsource = super.callPackage ./plugins/d2vsource { };
     dctfilter = super.callPackage ./plugins/dctfilter { };
     deblock = super.callPackage ./plugins/deblock { };
     descale = super.callPackage ./plugins/descale { };
