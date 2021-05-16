@@ -45,6 +45,7 @@ in
     wwxd = super.callPackage ./plugins/wwxd { };
     znedi3 = super.callPackage ./plugins/znedi3 { };
 
+    acsuite = callPythonPackage ./plugins/acsuite { };
     adjust = callPythonPackage ./plugins/adjust { };
     edi_rpow2 = callPythonPackage ./plugins/edi_rpow2 { };
     mt_lutspa = callPythonPackage ./plugins/mt_lutspa { };
