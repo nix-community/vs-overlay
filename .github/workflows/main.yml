@@ -13,7 +13,7 @@
         {
           "uses": "cachix/install-nix-action@v13",
           "with": {
-            "install_url": "https://releases.nixos.org/nix/nix-2.3.7/install",
+            "install_url": "https://releases.nixos.org/nix/nix-2.3.9/install",
             "extra_nix_config": "experimental-features = nix-command flakes"
           }
         },
