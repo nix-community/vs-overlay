@@ -2,13 +2,13 @@
 
 buildPythonPackage rec {
   pname = "vsTAAmbk";
-  version = "unstable-2020-08-13";
+  version = "0.8.1";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = pname;
-    rev = "4dddf1a86effb4c6ceae7ca493f1ceed434e37ea";
-    sha256 = "06n744b9qr495afrpp4c1i3vcr5cab114rx69xslbhiwy2mg237s";
+    rev = "v${version}";
+    sha256 = "sha256-KfU2f7tBhw007f4RmVruV3Pkgo1zdA4o43+1lL/ohKo=";
   };
 
   patches = [
