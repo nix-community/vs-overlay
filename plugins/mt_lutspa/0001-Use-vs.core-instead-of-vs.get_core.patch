@@ -1,0 +1,30 @@
+From 6c741ced6ad6b509bde7d6a365c8981539d211f5 Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Tue, 12 Oct 2021 21:31:39 +0200
+Subject: [PATCH] Use vs.core instead of vs.get_core()
+
+It has been deprecated since R51 and was entirely removed in R55.
+---
+ mt_lutspa.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mt_lutspa.py b/mt_lutspa.py
+index d5a51dc..d6a1d85 100644
+--- a/mt_lutspa.py
++++ b/mt_lutspa.py
+@@ -237,10 +237,10 @@ def lutspa(clip, mode="relative", relative=True, biased=True, expr="x",
+ 
+         return frame
+ 
+-    return vs.get_core().std.ModifyFrame(clip, clip, lutspa_core)
++    return vs.core.std.ModifyFrame(clip, clip, lutspa_core)
+ 
+ 
+-core = vs.get_core()
++core = vs.core
+ blank = core.std.BlankClip(width=848, height=480, length=250, format=vs.YUV420P8)
+ out = lutspa(blank, mode="relative", y_expr="x 0.5 > x 255 * y 255 * &u x y max 255 * ?",
+              expr="x 255 * y 255 * &u 112 max 144 min",
+-- 
+2.31.1
+

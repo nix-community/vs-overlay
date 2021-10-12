@@ -10,6 +10,10 @@ buildPythonPackage rec {
     sha256 = "0szws6fcrcgdn31szhrmglpl2kglrglx1bgxd0bjl3r51bxiry12";
   };
 
+  patches = [
+    ./0001-Use-vs.core-instead-of-vs.get_core.patch
+  ];
+
   propagatedBuildInputs = [
     numpy
   ];
