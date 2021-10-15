@@ -48,6 +48,7 @@ in
     retinex = prev.callPackage ./plugins/retinex { };
     sangnom = prev.callPackage ./plugins/sangnom { };
     scxvid = prev.callPackage ./plugins/scxvid { };
+    subtext = prev.callPackage ./plugins/subtext { };
     tcanny = prev.callPackage ./plugins/tcanny { };
     tnlmeans = prev.callPackage ./plugins/tnlmeans { };
     ttempsmooth = prev.callPackage ./plugins/ttempsmooth { };
