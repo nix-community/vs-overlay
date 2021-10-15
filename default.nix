@@ -40,6 +40,7 @@ in
     mvtools = prev.vapoursynth-mvtools;
     nnedi3 = prev.callPackage ./plugins/nnedi3 { };
     nnedi3cl = prev.callPackage ./plugins/nnedi3cl { };
+    ocr = prev.callPackage ./plugins/ocr { };
     placebo = prev.callPackage ./plugins/placebo { };
     readmpls = prev.callPackage ./plugins/readmpls { };
     remap = prev.callPackage ./plugins/remap { };
