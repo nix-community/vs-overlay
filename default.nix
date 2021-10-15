@@ -51,6 +51,7 @@ in
     tcanny = prev.callPackage ./plugins/tcanny { };
     tnlmeans = prev.callPackage ./plugins/tnlmeans { };
     ttempsmooth = prev.callPackage ./plugins/ttempsmooth { };
+    vivtc = prev.callPackage ./plugins/vivtc { };
     wwxd = prev.callPackage ./plugins/wwxd { };
     znedi3 = prev.callPackage ./plugins/znedi3 { };
 
