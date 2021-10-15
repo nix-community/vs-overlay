@@ -2,13 +2,13 @@
 
 buildPythonPackage rec {
   pname = "mvsfunc";
-  version = "r8";
+  version = "r10";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = pname;
     rev = version;
-    sha256 = "0y5whczp3skbfbv9ajizddpg2k8hxiiy339gkqhiqby7zlbnvdw2";
+    sha256 = "sha256-J68NMBE3MdAd9P0UJH32o0YwQx+7I5+13j8Jc5rbQtc=";
   };
 
   propagatedBuildInputs = with vapoursynthPlugins; [
