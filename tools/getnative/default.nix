@@ -7,19 +7,21 @@ let
 in
 buildPythonApplication rec {
   pname = "getnative";
-  version = "3.0.0";
+  version = "3.0.2";
 
   src = fetchFromGitHub {
     owner = "Infiziert90";
     repo = pname;
-    rev = version;
-    sha256 = "0jvvwyxlgarff2r5v2nvqmy2bw17anz4cid95gwbl3br4a2pmhzn";
+    # The version in setup.py is 3.0.2, but there is no tag for it
+    # (the tag that GitHub shows as 3.0.2 actually is 3.0.0)
+    rev = "2ae9037adca5ac1f5d747bb32f4dbea30631dc33";
+    sha256 = "sha256-h3M/eRDwJKaPRedISxW6lzBw5UT20hTLhqmRa4HzQuw=";
   };
 
   # vapoursynth is not recognised during installation
   postPatch = ''
     substituteInPlace requirements.txt \
-        --replace "VapourSynth>=45" ""
+        --replace "VapourSynth>=55" ""
   '';
 
   propagatedBuildInputs = [
