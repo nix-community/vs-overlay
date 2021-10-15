@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   pname = "fmtconv";
-  version = "r22";
+  version = "r29";
 
   src = fetchFromGitHub {
     owner = "EleonoreMizo";
     repo = pname;
     rev = version;
-    sha256 = "1nvanskvh8qv45h7islwgnyrvdkcn7h9jks5fskg4c00aj6bxrrn";
+    sha256 = "sha256-V2iY8mBIFtkLkiHXlN/KrlBmzCEpGStHYaOcJSTU9LE=";
   };
 
   preAutoreconf = "cd build/unix";
