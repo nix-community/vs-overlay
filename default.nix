@@ -43,6 +43,7 @@ in
     placebo = prev.callPackage ./plugins/placebo { };
     readmpls = prev.callPackage ./plugins/readmpls { };
     remap = prev.callPackage ./plugins/remap { };
+    removegrain = prev.callPackage ./plugins/removegrain { };
     retinex = prev.callPackage ./plugins/retinex { };
     sangnom = prev.callPackage ./plugins/sangnom { };
     scxvid = prev.callPackage ./plugins/scxvid { };
