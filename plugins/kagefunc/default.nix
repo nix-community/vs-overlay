@@ -14,13 +14,13 @@ let
 in
 buildPythonPackage rec {
   pname = "kagefunc";
-  version = "unstable-2021-01-21";
+  version = "0.1.0";
 
   src = fetchFromGitHub {
     owner = "Irrational-Encoding-Wizardry";
     repo = pname;
-    rev = "a1e89b1dd591bafec3b9f95e0087b096b9b6f9b1";
-    sha256 = "0j7n7iz0ksqydjm3jzk2l71a77l9ljm71wg414amdqjcbm5dmsw5";
+    rev = version;
+    sha256 = "sha256-9OpFSVLQspa6+xkCFqD5xeo3akCfwnpwtFuCCsQxAvQ=";
   };
 
   patches = [
