@@ -1,0 +1,35 @@
+From cfc284a25d94ddf4459bac612d208f9065ccebcf Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Fri, 15 Oct 2021 19:32:44 +0200
+Subject: [PATCH 2/2] Use format IDs from VapourSynth R55
+
+---
+ test/vsTAAmbkTestCase.py | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/test/vsTAAmbkTestCase.py b/test/vsTAAmbkTestCase.py
+index 7a70a00..d2acdd6 100644
+--- a/test/vsTAAmbkTestCase.py
++++ b/test/vsTAAmbkTestCase.py
+@@ -88,12 +88,12 @@ class GeneralTestCase(unittest.TestCase):
+     yuv420p16 = core.std.BlankClip(width=1920, height=1080, format=vs.YUV420P16, fpsnum=24000, fpsden=1001)
+     yuv444p16 = core.std.BlankClip(width=1920, height=1080, format=vs.YUV444P16, fpsnum=24000, fpsden=1001)
+     format_id = {
+-        '1000010': 'GRAY8',
+-        '1000011': 'GRAY16',
+-        '3000010': 'YUV420P8',
+-        '3000012': 'YUV444P8',
+-        '3000022': 'YUV420P16',
+-        '3000024': 'YUV444P16',
++        '268959744': 'GRAY8',
++        '269484032': 'GRAY16',
++        '805830913': 'YUV420P8',
++        '805830656': 'YUV444P8',
++        '806355201': 'YUV420P16',
++        '806354944': 'YUV444P16',
+     }
+ 
+     def test_default_value(self):
+-- 
+2.31.1
+

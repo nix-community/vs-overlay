@@ -1,3 +1,12 @@
+From 35b84e26e337a3d8a3cacc5dcfde8d8c81931924 Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Fri, 15 Oct 2021 19:34:45 +0200
+Subject: [PATCH 1/2] Skip OpenCL test
+
+---
+ test/vsTAAmbkTestCase.py | 1 +
+ 1 file changed, 1 insertion(+)
+
 diff --git a/test/vsTAAmbkTestCase.py b/test/vsTAAmbkTestCase.py
 index ca85b73..7a70a00 100644
 --- a/test/vsTAAmbkTestCase.py
@@ -10,3 +19,6 @@ index ca85b73..7a70a00 100644
      def test_opencl(self):
          test_clip = [self.gray8, self.gray16]
          for clip in test_clip:
+-- 
+2.31.1
+

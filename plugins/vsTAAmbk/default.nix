@@ -12,7 +12,8 @@ buildPythonPackage rec {
   };
 
   patches = [
-    ./skip-opencl-test.diff
+    ./0001-Skip-OpenCL-test.patch
+    ./0002-Use-format-IDs-from-VapourSynth-R55.patch
   ];
 
   propagatedBuildInputs = with vapoursynthPlugins; [
@@ -27,6 +28,7 @@ buildPythonPackage rec {
     mvtools
     nnedi3
     nnedi3cl
+    removegrain
     sangnom
     tcanny
     znedi3
