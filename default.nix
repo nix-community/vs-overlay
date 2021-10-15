@@ -32,6 +32,7 @@ in
     fmtconv = prev.callPackage ./plugins/fmtconv { };
     histogram = prev.callPackage ./plugins/histogram { };
     hqdn3d = prev.callPackage ./plugins/hqdn3d { };
+    imwri = prev.callPackage ./plugins/imwri { };
     knlmeanscl = prev.callPackage ./plugins/knlmeanscl { };
     lsmashsource = prev.callPackage ./plugins/lsmashsource { };
     median = prev.callPackage ./plugins/median { };
