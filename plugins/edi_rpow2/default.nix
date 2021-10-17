@@ -10,6 +10,10 @@ buildPythonPackage rec {
     sha256 = "0vaj4v74khrsmyvkpimfkbbyk4bwn065j57fcvzx37fki8a8sw6i";
   };
 
+  patches = [
+    ./0001-Use-vs.core-instead-of-vs.get_core.patch
+  ];
+
   propagatedBuildInputs = with vapoursynthPlugins; [
     eedi2
     eedi3m

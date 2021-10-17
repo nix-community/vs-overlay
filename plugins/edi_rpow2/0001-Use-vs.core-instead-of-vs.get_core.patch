@@ -1,0 +1,79 @@
+From 90fa697e44d42e7939071672a7ae282be7d37ca9 Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Sun, 17 Oct 2021 11:38:12 +0200
+Subject: [PATCH] Use vs.core instead of vs.get_core()
+
+The latter has been removed since VapourSynth R55.
+---
+ edi_rpow2.py | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/edi_rpow2.py b/edi_rpow2.py
+index 6aedea9..cd345bd 100644
+--- a/edi_rpow2.py
++++ b/edi_rpow2.py
+@@ -1,6 +1,6 @@
+ def nnedi3_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,etype=None,pscrn=None,opt=None,int16_prescreener=None,int16_predictor=None,exp=None):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	def edi(clip,field,dh):
+ 		return core.nnedi3.nnedi3(clip=clip,field=field,dh=dh,nsize=nsize,nns=nns,qual=qual,etype=etype,pscrn=pscrn,opt=opt,int16_prescreener=int16_prescreener,int16_predictor=int16_predictor,exp=exp)
+@@ -9,7 +9,7 @@ def nnedi3_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,etype
+ 
+ def znedi3_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,etype=None,pscrn=None,opt=None,int16_prescreener=None,int16_predictor=None,exp=None):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	def edi(clip,field,dh):
+ 		return core.znedi3.nnedi3(clip=clip,field=field,dh=dh,nsize=nsize,nns=nns,qual=qual,etype=etype,pscrn=pscrn,opt=opt,int16_prescreener=int16_prescreener,int16_predictor=int16_predictor,exp=exp)
+@@ -18,7 +18,7 @@ def znedi3_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,etype
+ 
+ def nnedi3cl_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,etype=None,pscrn=None,device=None):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	def edi(clip,field,dh):
+ 		return core.nnedi3cl.NNEDI3CL(clip=clip,field=field,dh=dh,nsize=nsize,nns=nns,qual=qual,etype=etype,pscrn=pscrn,device=device)
+@@ -27,7 +27,7 @@ def nnedi3cl_rpow2(clip,rfactor,correct_shift="zimg",nsize=0,nns=3,qual=None,ety
+ 
+ def eedi3_rpow2(clip,rfactor,correct_shift="zimg",alpha=None,beta=None,gamma=None,nrad=None,mdis=None,hp=None,ucubic=None,cost3=None,vcheck=None,vthresh0=None,vthresh1=None,vthresh2=None,sclip=None):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	def edi(clip,field,dh):
+ 		return core.eedi3.eedi3(clip=clip,field=field,dh=dh,alpha=alpha,beta=beta,gamma=gamma,nrad=nrad,mdis=mdis,hp=hp,ucubic=ucubic,cost3=cost3,vcheck=vcheck,vthresh0=vthresh0,vthresh1=vthresh1,vthresh2=vthresh2,sclip=sclip)
+@@ -36,7 +36,7 @@ def eedi3_rpow2(clip,rfactor,correct_shift="zimg",alpha=None,beta=None,gamma=Non
+ 
+ def eedi2_rpow2(clip,rfactor,correct_shift="zimg",mthresh=None,lthresh=None,vthresh=None,estr=None,dstr=None,maxd=None,map=None,nt=None,pp=None):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	def edi(clip,field,dh):
+ 		return core.eedi2.EEDI2(clip=clip,field=field,mthresh=mthresh,lthresh=lthresh,vthresh=vthresh,estr=estr,dstr=dstr,maxd=maxd,map=map,nt=nt,pp=pp)
+@@ -46,7 +46,7 @@ def eedi2_rpow2(clip,rfactor,correct_shift="zimg",mthresh=None,lthresh=None,vthr
+ def edi_rpow2(clip,rfactor,correct_shift,edi):
+ 	import vapoursynth as vs
+ 	import math
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	steps=math.log(rfactor)/math.log(2) # 2^steps=rfactor
+ 	
+@@ -74,7 +74,7 @@ def edi_rpow2(clip,rfactor,correct_shift,edi):
+ 
+ def correct_edi_shift(clip,rfactor,plugin):
+ 	import vapoursynth as vs
+-	core = vs.get_core()
++	core = vs.core
+ 	
+ 	if clip.format.subsampling_w==1:
+ 		hshift=-rfactor/2+0.5 # hshift(steps+1)=2*hshift(steps)-0.5
+-- 
+2.31.1
+
