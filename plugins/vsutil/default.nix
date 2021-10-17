@@ -1,15 +1,15 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "vsutil";
-  version = "0.5.0";
+  version = "unstable-2021-10-23";
 
   # there are no tests in the pypi tarball
   src = fetchFromGitHub {
     owner = "Irrational-Encoding-Wizardry";
     repo = pname;
-    rev = version;
-    sha256 = "0pv3910g5cdx132cq9f3g7rb3yxyxyvw9110vsl196xswkccl8n8";
+    rev = "a101f22b7be4f28bc89ed73bfc82cce3067dc549";
+    sha256 = "sha256-IQncZxpd2QNYmjMXxE++yeY4mDffBjOtE69J2lQPQUU=";
   };
 
   patches = [
