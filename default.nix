@@ -8,6 +8,7 @@ in
     addgrain = prev.callPackage ./plugins/addgrain { };
     autocrop = prev.callPackage ./plugins/autocrop { };
     awarpsharp2 = prev.callPackage ./plugins/awarpsharp2 { };
+    bestaudiosource = prev.callPackage ./plugins/bestaudiosource { };
     beziercurve = prev.callPackage ./plugins/beziercurve { };
     bifrost = prev.callPackage ./plugins/bifrost { };
     bilateral = prev.callPackage ./plugins/bilateral { };

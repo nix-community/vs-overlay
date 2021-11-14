@@ -1,0 +1,58 @@
+From 060ebbed04ba4ce351c4f9f641308e1b84ee30f5 Mon Sep 17 00:00:00 2001
+From: Simon Bruder <simon@sbruder.de>
+Date: Mon, 25 Apr 2022 11:33:22 +0200
+Subject: [PATCH] Fix audio source iteration with -Wsign-compare
+
+---
+ src/audiosource.cpp | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/audiosource.cpp b/src/audiosource.cpp
+index 9d34f47..88d9820 100644
+--- a/src/audiosource.cpp
++++ b/src/audiosource.cpp
+@@ -292,7 +292,7 @@ bool BestAudioSource::GetExactDuration() {
+     if (HasExactNumAudioSamples)
+         return true;
+     int Index = -1;
+-    for (int i = 0; i < MaxAudioSources; i++) {
++    for (size_t i = 0; i < MaxAudioSources; i++) {
+         if (Decoders[i] && (Index < 0 || Decoders[Index]->GetFrameNumber() < Decoders[i]->GetFrameNumber()))
+             Index = i;
+     }
+@@ -386,14 +386,14 @@ void BestAudioSource::GetAudio(uint8_t * const * const Data, int64_t Start, int6
+         return;
+ 
+     int Index = -1;
+-    for (int i = 0; i < MaxAudioSources; i++) {
++    for (size_t i = 0; i < MaxAudioSources; i++) {
+         if (Decoders[i] && Decoders[i]->GetSamplePosition() <= Start && (Index < 0 || Decoders[Index]->GetSamplePosition() < Decoders[i]->GetSamplePosition()))
+             Index = i;
+     }
+ 
+     // If an empty slot exists simply spawn a new decoder there
+     if (Index < 0) {
+-        for (int i = 0; i < MaxAudioSources; i++) {
++        for (size_t i = 0; i < MaxAudioSources; i++) {
+             if (!Decoders[i]) {
+                 Index = i;
+                 Decoders[i] = new LWAudioDecoder(Source.c_str(), Track, FFOptions);
+@@ -405,7 +405,7 @@ void BestAudioSource::GetAudio(uint8_t * const * const Data, int64_t Start, int6
+     // No far enough back decoder exists and all slots are occupied so evict a random one
+     if (Index < 0) {
+         Index = 0;
+-        for (int i = 0; i < MaxAudioSources; i++) {
++        for (size_t i = 0; i < MaxAudioSources; i++) {
+             if (Decoders[i] && DecoderLastUse[i] < DecoderLastUse[Index])
+                 Index = i;
+         }
+@@ -458,4 +458,4 @@ void BestAudioSource::GetAudio(uint8_t * const * const Data, int64_t Start, int6
+ 
+     if (Count != 0)
+         throw AudioException("Code error, failed to provide all samples");
+-}
+\ No newline at end of file
++}
+-- 
+2.33.1
+
