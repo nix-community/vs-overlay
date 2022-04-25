@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-bm3d";
-  version = "r8";
+  version = "r9";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-BM3D";
     rev = version;
-    sha256 = "0hifiyqr0vp3rkqrjbz2fvka7s8xvcpl58rjf0rvljs64bxia4v7";
+    sha256 = "sha256-i7Kk7uFt2Wo/EWpVkGyuYgGZxBuQgOT3JM+WCFPHVrc=";
   };
 
   nativeBuildInputs = [ meson ninja pkg-config ];
