@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "vapoursynth-adjust";
@@ -21,12 +21,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D adjust.py $out/${python3.sitePackages}/adjust.py
+    install -D adjust.py $out/${python.sitePackages}/adjust.py
   '';
 
   checkInputs = [ vapoursynth ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "adjust" ];
 

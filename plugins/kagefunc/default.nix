@@ -1,4 +1,4 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python3, vapoursynth }:
+{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python, vapoursynth }:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     adaptivegrain
@@ -36,12 +36,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D kagefunc.py $out/${python3.sitePackages}/kagefunc.py
+    install -D kagefunc.py $out/${python.sitePackages}/kagefunc.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBinaryPlugins) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
     python3 tests.py
   '';
   pythonImportsCheck = [ "kagefunc" ];

@@ -1,4 +1,4 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python3, vapoursynth }:
+{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python, vapoursynth }:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     bilateral
@@ -29,12 +29,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D fvsfunc.py $out/${python3.sitePackages}/fvsfunc.py
+    install -D fvsfunc.py $out/${python.sitePackages}/fvsfunc.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBinaryPlugins) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "fvsfunc" ];
 

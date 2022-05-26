@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "mvsfunc";
@@ -19,12 +19,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D mvsfunc.py $out/${python3.sitePackages}/mvsfunc.py
+    install -D mvsfunc.py $out/${python.sitePackages}/mvsfunc.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBuildInputs) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "mvsfunc" ];
 

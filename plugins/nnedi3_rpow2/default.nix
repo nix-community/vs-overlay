@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "nnedi3_rpow2";
@@ -20,12 +20,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D nnedi3_rpow2.py $out/${python3.sitePackages}/nnedi3_rpow2.py
+    install -D nnedi3_rpow2.py $out/${python.sitePackages}/nnedi3_rpow2.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBuildInputs) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "nnedi3_rpow2" ];
 

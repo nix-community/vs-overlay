@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "havsfunc";
@@ -41,12 +41,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D havsfunc.py $out/${python3.sitePackages}/havsfunc.py
+    install -D havsfunc.py $out/${python.sitePackages}/havsfunc.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBuildInputs) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "havsfunc" ];
 

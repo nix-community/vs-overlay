@@ -1,7 +1,7 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, python3 }:
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, python }:
 
-# required to make python3.buildEnv use descale’s python module
-python3.pkgs.toPythonModule (stdenv.mkDerivation rec {
+# required to make python.buildEnv use descale’s python module
+python.pkgs.toPythonModule (stdenv.mkDerivation rec {
   pname = "vapoursynth-descale";
   version = "r6";
 
@@ -21,7 +21,7 @@ python3.pkgs.toPythonModule (stdenv.mkDerivation rec {
   '';
 
   postInstall = ''
-    install -D ../descale.py $out/${python3.sitePackages}/descale.py
+    install -D ../descale.py $out/${python.sitePackages}/descale.py
   '';
 
   meta = with lib; {

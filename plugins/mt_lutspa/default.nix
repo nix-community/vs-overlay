@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchgit, numpy, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchgit, numpy, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "mt_lutspa";
@@ -21,12 +21,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D mt_lutspa.py $out/${python3.sitePackages}/mt_lutspa.py
+    install -D mt_lutspa.py $out/${python.sitePackages}/mt_lutspa.py
   '';
 
   checkInputs = [ vapoursynth ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "mt_lutspa" ];
 

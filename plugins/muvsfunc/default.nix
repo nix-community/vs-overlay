@@ -1,4 +1,4 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, matplotlib, python3, vapoursynth }:
+{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, matplotlib, python, vapoursynth }:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     descale
@@ -30,12 +30,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D muvsfunc.py $out/${python3.sitePackages}/muvsfunc.py
+    install -D muvsfunc.py $out/${python.sitePackages}/muvsfunc.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBinaryPlugins) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "muvsfunc" ];
 

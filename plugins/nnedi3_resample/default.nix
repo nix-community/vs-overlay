@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "nnedi3_resample";
@@ -20,12 +20,12 @@ buildPythonPackage rec {
   format = "other";
 
   installPhase = ''
-    install -D nnedi3_resample.py $out/${python3.sitePackages}/nnedi3_resample.py
+    install -D nnedi3_resample.py $out/${python.sitePackages}/nnedi3_resample.py
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBuildInputs) ];
   checkPhase = ''
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
   pythonImportsCheck = [ "nnedi3_resample" ];
 
