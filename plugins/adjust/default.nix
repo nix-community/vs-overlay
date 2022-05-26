@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, python3, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "vapoursynth-adjust";
@@ -10,6 +10,13 @@ buildPythonPackage rec {
     rev = "v${version}";
     sha256 = "0wd6sh788ljb4vj6fd5zv2cx7nl6x1k3lnz44n7p3ac5vfskjz8a";
   };
+
+  patches = [
+    (fetchpatch {
+      url = "https://github.com/dubhater/vapoursynth-adjust/commit/a3af7cb57cb37747b0667346375536e65b1fed17.patch";
+      sha256 = "sha256-0N7oSsYj0/F0PwswI+1hgM7Gu1KKWdlJOuYf24wlEUw=";
+    })
+  ];
 
   format = "other";
 
