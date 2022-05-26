@@ -28,6 +28,7 @@ buildPythonPackage rec {
     fmtconv
     hqdn3d
     knlmeanscl
+    miscfilters-obsolete
     mvsfunc
     mvtools
     nnedi3
