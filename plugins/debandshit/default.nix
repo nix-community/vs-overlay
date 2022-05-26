@@ -1,4 +1,4 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python3, vapoursynth }:
+{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python, vapoursynth }:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     f3kdb
@@ -27,14 +27,14 @@ buildPythonPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -D debandshit.py $out/${python3.sitePackages}/debandshit.py
+    install -D debandshit.py $out/${python.sitePackages}/debandshit.py
     runHook postInstall
   '';
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBinaryPlugins) ];
   checkPhase = ''
     runHook preCheck
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
     runHook postCheck
   '';
   pythonImportsCheck = [ "debandshit" ];

@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python3, vapoursynth }:
+{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "finedehalo";
@@ -19,14 +19,14 @@ buildPythonPackage rec {
 
   installPhase = ''
     runHook preInstall
-    install -D finedehalo.py $out/${python3.sitePackages}/finedehalo.py
+    install -D finedehalo.py $out/${python.sitePackages}/finedehalo.py
     runHook postInstall
   '';
 
   checkInputs = [ vapoursynth ];
   checkPhase = ''
     runHook preCheck
-    PYTHONPATH=$out/${python3.sitePackages}:$PYTHONPATH
+    PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
     runHook postCheck
   '';
   pythonImportsCheck = [ "finedehalo" ];
