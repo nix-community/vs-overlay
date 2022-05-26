@@ -1,4 +1,4 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, rich, toolz, vapoursynth }:
+{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, rich, toolz, vapoursynth, pythonOlder }:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     adaptivegrain
@@ -19,13 +19,13 @@ let
 in
 buildPythonPackage rec {
   pname = "lvsfunc";
-  version = "unstable-2021-05-15";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "Irrational-Encoding-Wizardry";
     repo = pname;
-    rev = "76bddb75bc014a47064958beecb13143b8206fa6";
-    sha256 = "0gvpz9d0lbjvpk8spkfxbmi4s8pqqyjqi8jjvfhfdf3m906v1wh1";
+    rev = "v${version}";
+    sha256 = "sha256-Yv7WBr9suuYsDI9LfZVcTBuDTPkd/DMCk/lQ58qsLyw=";
   };
 
   postPatch = ''
@@ -33,10 +33,6 @@ buildPythonPackage rec {
     # vapoursynth).
     substituteInPlace requirements.txt \
         --replace "VapourSynth>=51" "" \
-
-    # TODO: remove when python 3.9 is default in nixpkgs
-    substituteInPlace setup.py \
-        --replace "python_requires='>=3.9'" "python_requires='>=3.8'" \
   '';
 
   propagatedBuildInputs = [
@@ -61,5 +57,6 @@ buildPythonPackage rec {
     license = licenses.mit; # no license
     maintainers = with maintainers; [ sbruder ];
     platforms = platforms.all;
+    broken = pythonOlder "3.10";
   };
 }
