@@ -1,9 +1,10 @@
-{ lib,
-  buildPythonPackage,
-  fetchFromGitHub,
-  vapoursynth,
-  poetry,
-  python3Packages
+{ lib
+, buildPythonPackage
+, fetchFromGitHub
+, vapoursynth
+, numpy
+, poetry
+, pytorch
 }:
 
 buildPythonPackage rec {
@@ -20,11 +21,10 @@ buildPythonPackage rec {
   format = "pyproject";
 
   propagatedBuildInputs = [
-    poetry
-  ] ++ (with python3Packages; [
     numpy
+    poetry
     pytorch
-  ]);
+  ];
 
   checkInputs = [
     vapoursynth
