@@ -3,12 +3,12 @@
 # required to make python.buildEnv use descale’s python module
 python.pkgs.toPythonModule (stdenv.mkDerivation rec {
   pname = "vapoursynth-descale";
-  version = "r6";
+  version = "6";
 
   src = fetchFromGitHub {
     owner = "Irrational-Encoding-Wizardry";
     repo = pname;
-    rev = version;
+    rev = "r${version}";
     sha256 = "093dk125y4gacvhrh10x1i5g2qbsjl4spz74gjjm7xbvrvi1sc72";
   };
 

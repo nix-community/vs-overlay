@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-ReadMpls";
-  version = "r4";
+  version = "4";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = pname;
-    rev = version;
+    rev = "r${version}";
     sha256 = "0v1hs0wgpv9raacsslmwhsw81c49c52mhc6py2ydxb0b359rqg2n";
   };
 

@@ -2,7 +2,7 @@
 
 buildPythonPackage rec {
   pname = "rekt";
-  version = "r39";
+  version = "39";
 
   src = fetchFromGitLab {
     owner = "Ututu";

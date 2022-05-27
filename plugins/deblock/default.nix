@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-Deblock";
-  version = "r6.1";
+  version = "6.1";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = pname;
-    rev = version;
+    rev = "r${version}";
     sha256 = "0s2aqfak8mxylkhfl350mm8abspp7sgfacnigf7qksvhdx232k2c";
   };
 

@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "subtext";
-  version = "R3";
+  version = "3";
 
   src = fetchFromGitHub {
     owner = "vapoursynth";
     repo = pname;
-    rev = version;
+    rev = "R${version}";
     sha256 = "sha256-Tux8WFbUn4Bt1EL9r+f+Y/av9w9Y23gc79m1JcZWj50=";
   };
 
