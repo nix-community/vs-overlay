@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-beziercurve";
-  version = "r3";
+  version = "3";
 
   src = fetchFromGitHub {
     owner = "kewenyu";
     repo = "VapourSynth-BezierCurve";
-    rev = version;
+    rev = "r${version}";
     sha256 = "1513ndj7sxwihyxx6x9ciyd8jhw9vs6lhzw7fpl7cz7fdj49wwi6";
   };
 

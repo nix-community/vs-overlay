@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vs-imwri";
-  version = "R1";
+  version = "1";
 
   src = fetchFromGitHub {
     owner = "vapoursynth";
     repo = pname;
-    rev = version;
+    rev = "R${version}";
     sha256 = "sha256-3nNX7OxAwHPJ6JwaTZJTH13eWktPI/XBmEC/OETCun4=";
   };
 

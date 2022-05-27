@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-addgrain";
-  version = "r8";
+  version = "8";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-AddGrain";
-    rev = version;
+    rev = "r${version}";
     sha256 = "0qfazdifs1nq5ll6nvfvy3w9m28s2llm5i203ak6qf0bf98jnh4j";
   };
 

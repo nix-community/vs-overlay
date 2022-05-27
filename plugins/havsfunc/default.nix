@@ -2,12 +2,12 @@
 
 buildPythonPackage rec {
   pname = "havsfunc";
-  version = "r33";
+  version = "33";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = pname;
-    rev = version;
+    rev = "r${version}";
     sha256 = "14132gcy0zw348c40y2i8c7n3i1ygcnv9xrf83jp6m3b9v557z7p";
   };
 

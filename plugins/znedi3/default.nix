@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "znedi3";
-  version = "r2";
+  version = "2";
 
   src = fetchFromGitHub {
     owner = "sekrit-twc";
     repo = pname;
-    rev = version;
+    rev = "r${version}";
     sha256 = "1p6563s1b52qisvvwid047jd376sz737lggwfhanci0sqxxphhrb";
     fetchSubmodules = true;
   };

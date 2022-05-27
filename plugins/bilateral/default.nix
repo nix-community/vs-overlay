@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-bilateral";
-  version = "r3";
+  version = "3";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-Bilateral";
-    rev = version;
+    rev = "r${version}";
     sha256 = "05rhbg84z74rk3jcxa6abgqcqnjzgmjw03wljxa55jc358h9a6f0";
   };
 

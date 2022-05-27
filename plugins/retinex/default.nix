@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-retinex";
-  version = "r4";
+  version = "4";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-Retinex";
-    rev = version;
+    rev = "r${version}";
     sha256 = "108jmawfn87ydabpxkb0srbk2r8vgpfn0kiby4g56msbc0rpvc6g";
   };
 

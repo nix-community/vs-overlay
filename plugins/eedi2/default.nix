@@ -2,12 +2,12 @@
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-eedi2";
-  version = "r7.1";
+  version = "7.1";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-EEDI2";
-    rev = version;
+    rev = "r${version}";
     sha256 = "10yfndb4q5zd450v5di331r3hm1mfikw370jvxydd98b0lbjpp8f";
   };
 
