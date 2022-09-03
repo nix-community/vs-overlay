@@ -1,6 +1,11 @@
 final: prev:
 let
-  callPythonPackage = prev.vapoursynth.python3.pkgs.callPackage;
+  # This is required to allow vapoursynth.withPlugins to be used inside python packages,
+  # where normally python3Packages.vapoursynth would be used,
+  # which only includes the python module without the frameserver.
+  callPythonPackage = prev.lib.callPackageWith (final // final.vapoursynth.python3.pkgs // {
+    inherit (final) vapoursynth;
+  });
 in
 {
   vapoursynthPlugins = prev.recurseIntoAttrs {
