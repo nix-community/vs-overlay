@@ -9,6 +9,7 @@ let
 in
 {
   vapoursynthPlugins = prev.recurseIntoAttrs {
+    akarin = prev.callPackage ./plugins/akarin { };
     adaptivegrain = prev.callPackage ./plugins/adaptivegrain { };
     addgrain = prev.callPackage ./plugins/addgrain { };
     autocrop = prev.callPackage ./plugins/autocrop { };
