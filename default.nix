@@ -59,6 +59,7 @@ in
     subtext = prev.callPackage ./plugins/subtext { };
     tcanny = prev.callPackage ./plugins/tcanny { };
     tivtc = prev.callPackage ./plugins/tivtc { };
+    tdeintmod = prev.callPackage ./plugins/tdeintmod { };
     tnlmeans = prev.callPackage ./plugins/tnlmeans { };
     ttempsmooth = prev.callPackage ./plugins/ttempsmooth { };
     vivtc = prev.callPackage ./plugins/vivtc { };
