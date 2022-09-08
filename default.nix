@@ -88,4 +88,5 @@ in
 
   getnative = callPythonPackage ./tools/getnative { };
   vspreview-rs = prev.callPackage ./tools/vspreview-rs { };
+  d2vwitch = prev.libsForQt5.callPackage ./tools/d2vwitch { };
 }
