@@ -87,4 +87,5 @@ in
   };
 
   getnative = callPythonPackage ./tools/getnative { };
+  vspreview-rs = prev.callPackage ./tools/vspreview-rs { };
 }
