@@ -43,6 +43,7 @@ in
     imwri = prev.callPackage ./plugins/imwri { };
     knlmeanscl = prev.callPackage ./plugins/knlmeanscl { };
     lsmashsource = prev.callPackage ./plugins/lsmashsource { };
+    libp2p = prev.callPackage ./plugins/libp2p { };
     median = prev.callPackage ./plugins/median { };
     miscfilters-obsolete = prev.callPackage ./plugins/miscfilters-obsolete { };
     msmoosh = prev.callPackage ./plugins/msmoosh { };
