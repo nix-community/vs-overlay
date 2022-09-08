@@ -80,6 +80,7 @@ in
     vsgan = callPythonPackage ./plugins/vsgan { };
     vsTAAmbk = callPythonPackage ./plugins/vsTAAmbk { };
     vsutil = callPythonPackage ./plugins/vsutil { };
+    vs-dfft = callPythonPackage ./plugins/vs-dfft { };
 
     awsmfunc = callPythonPackage ./plugins/awsmfunc { };
     fvsfunc = callPythonPackage ./plugins/fvsfunc { };
