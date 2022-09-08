@@ -29,6 +29,7 @@ in
     deblock = prev.callPackage ./plugins/deblock { };
     descale = prev.callPackage ./plugins/descale { };
     dfttest = prev.callPackage ./plugins/dfttest { };
+    dotkill = prev.callPackage ./plugins/dotkill { };
     eedi2 = prev.callPackage ./plugins/eedi2 { };
     eedi3m = prev.callPackage ./plugins/eedi3m { };
     f3kdb = prev.callPackage ./plugins/f3kdb { };
