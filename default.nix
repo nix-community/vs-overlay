@@ -88,4 +88,10 @@ in
   };
 
   getnative = callPythonPackage ./tools/getnative { };
+
+  pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+    (python-final: python-prev: {
+      styler00dollar-vsgan-trt = callPythonPackage ./tools/styler00dollar-vsgan-trt { };
+    })
+  ];
 }
