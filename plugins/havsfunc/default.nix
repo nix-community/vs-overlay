@@ -1,17 +1,6 @@
 { lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
-
-buildPythonPackage rec {
-  pname = "havsfunc";
-  version = "33";
-
-  src = fetchFromGitHub {
-    owner = "HomeOfVapourSynthEvolution";
-    repo = pname;
-    rev = "r${version}";
-    sha256 = "14132gcy0zw348c40y2i8c7n3i1ygcnv9xrf83jp6m3b9v557z7p";
-  };
-
-  propagatedBuildInputs = with vapoursynthPlugins; [
+let
+  plugins_native = with vapoursynthPlugins; [
     addgrain
     adjust
     bm3d
@@ -37,14 +26,33 @@ buildPythonPackage rec {
     ttempsmooth
     znedi3
   ];
+  plugins_python = with vapoursynthPlugins; [
+    vsutil
+  ];
+in
+buildPythonPackage rec {
+  pname = "havsfunc";
+  version = "unstable-2022-09-08";
+  src = fetchFromGitHub {
+    owner = "HomeOfVapourSynthEvolution";
+    repo = pname;
+    rev = "2c6d3fedc3c4c3f3ed2460f7014d1227fe2fe207";
+    sha256 = "sha256-YJl/X9niJelgovwUK6S50lvQUe/yYAbXEHWBbMqfXz0=";
+  };
 
   format = "other";
 
+  propagatedBuildInputs = plugins_native ++ plugins_python;
+
   installPhase = ''
+    runHook preInstall
+
     install -D havsfunc.py $out/${python.sitePackages}/havsfunc.py
+
+    runHook postInstall
   '';
 
-  checkInputs = [ (vapoursynth.withPlugins propagatedBuildInputs) ];
+  checkInputs = [ (vapoursynth.withPlugins plugins_native ) ];
   checkPhase = ''
     PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
