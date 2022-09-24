@@ -26,6 +26,7 @@ in
     d2vsource = prev.callPackage ./plugins/d2vsource { };
     dctfilter = prev.callPackage ./plugins/dctfilter { };
     deblock = prev.callPackage ./plugins/deblock { };
+    decross = prev.callPackage ./plugins/decross { };
     descale = prev.callPackage ./plugins/descale { };
     dfttest = prev.callPackage ./plugins/dfttest { };
     eedi2 = prev.callPackage ./plugins/eedi2 { };
