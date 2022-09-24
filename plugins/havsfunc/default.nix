@@ -14,7 +14,6 @@ let
     fft3dfilter
     fluxsmooth
     fmtconv
-    fmtconv
     hqdn3d
     knlmeanscl
     miscfilters-obsolete
