@@ -58,6 +58,7 @@ in
     scxvid = prev.callPackage ./plugins/scxvid { };
     subtext = prev.callPackage ./plugins/subtext { };
     tcanny = prev.callPackage ./plugins/tcanny { };
+    temporalsoften2 = prev.callPackage ./plugins/temporalsoften2 { };
     tnlmeans = prev.callPackage ./plugins/tnlmeans { };
     ttempsmooth = prev.callPackage ./plugins/ttempsmooth { };
     vivtc = prev.callPackage ./plugins/vivtc { };
