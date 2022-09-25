@@ -68,6 +68,7 @@ in
 
     acsuite = callPythonPackage ./plugins/acsuite { };
     adjust = callPythonPackage ./plugins/adjust { };
+    astdr = callPythonPackage ./plugins/astdr { };
     debandshit = callPythonPackage ./plugins/debandshit { };
     edi_rpow2 = callPythonPackage ./plugins/edi_rpow2 { };
     finedehalo = callPythonPackage ./plugins/finedehalo { };
