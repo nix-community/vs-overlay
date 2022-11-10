@@ -1,0 +1,13 @@
+diff --git a/src/minideen.cpp b/src/minideen.cpp
+index d138888..2b81d6e 100644
+--- a/src/minideen.cpp
++++ b/src/minideen.cpp
+@@ -119,7 +119,7 @@ static void process_plane_sse2_8bit(const uint8_t *srcp, uint8_t *dstp, int firs
+             __m128i magic_hi = zeroes;
+ 
+             for (int i = 0; i < 8; i++) {
+-                uint16_t e_lo = _mm_extract_epi16(counter_lo, i);
++                uint16_t e_lo = _mm_extract_epi16(counter_lo, 0);
+                 uint16_t e_hi = _mm_extract_epi16(counter_hi, i);
+                 magic_lo = _mm_insert_epi16(magic_lo, magic[e_lo], i);
+                 magic_hi = _mm_insert_epi16(magic_hi, magic[e_hi], i);
