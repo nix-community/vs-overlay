@@ -3,7 +3,7 @@
 , fetchFromGitHub
 , vapoursynth
 , numpy
-, poetry
+, poetry-core
 , pytorch
 }:
 
@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [
     numpy
-    poetry
+    poetry-core
     pytorch
   ];
 
