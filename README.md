@@ -8,7 +8,7 @@ Add the repository to `~/.config/nixpkgs/overlays.nix`:
 
 ```nix
 [
-  (import (builtins.fetchTarball "https://github.com/tadeokondrak/vs-overlay/archive/master.tar.gz"))
+  (import (builtins.fetchTarball "https://github.com/nix-community/vs-overlay/archive/master.tar.gz"))
 ]
 ```
 
@@ -19,7 +19,7 @@ Add the repository to the `nixpkgs.overlays` option of `configuration.nix`:
 ```nix
 {
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball "https://github.com/tadeokondrak/vs-overlay/archive/master.tar.gz"))
+    (import (builtins.fetchTarball "https://github.com/nix-community/vs-overlay/archive/master.tar.gz"))
   ];
 }
 ```
@@ -37,7 +37,7 @@ In `flake.nix`, add `vs-overlay` as an input:
 
 ```nix
 {
-  inputs.vs-overlay.url = "github:tadeokondrak/vs-overlay";
+  inputs.vs-overlay.url = "github:nix-community/vs-overlay";
 }
 ```
 
@@ -110,7 +110,7 @@ In `flake.nix`, add `vs-overlay` as an input:
 
 ```nix
 {
-  inputs.vs-overlay.url = "github:tadeokondrak/vs-overlay";
+  inputs.vs-overlay.url = "github:nix-community/vs-overlay";
 }
 ```
 
