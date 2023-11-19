@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation rec {
   pname = "vs-placebo";
-  version = "1.4.2";
+  version = "1.4.4";
 
   src = fetchFromGitHub {
     owner = "Lypheo";
     repo = pname;
     rev = version;
-    sha256 = "sha256-nerS1z/Ch/UqcmcY2gNL1Xl3hs1/etEAODj8pzrSuEE=";
+    sha256 = "sha256-1DTdllP+Y4s+t2PMnpcgeLjOxOyyV/yhFSxPP9/Gy9M=";
     fetchSubmodules = true;
   };
 
@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     substituteInPlace meson.build \
-        --replace "vapoursynth_dep.get_pkgconfig_variable('libdir')" "get_option('libdir')"
+        --replace "vapoursynth_dep.get_variable(pkgconfig: 'libdir')" "get_option('libdir')"
   '';
 
   meta = with lib; {
