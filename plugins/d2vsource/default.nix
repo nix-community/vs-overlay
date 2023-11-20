@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "D2V parser and decoder for VapourSynth";
-    homepage = "https://github.com/dubhater/vapoursynth-cnr2";
+    homepage = "https://github.com/dwbuiten/d2vsource";
     license = licenses.lgpl21Plus;
     maintainers = with maintainers; [ sbruder ];
     platforms = platforms.all;
