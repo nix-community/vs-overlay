@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
+{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, vapoursynthPlugins, python, vapoursynth }:
 
 buildPythonPackage rec {
   pname = "vsTAAmbk";
@@ -12,8 +12,12 @@ buildPythonPackage rec {
   };
 
   patches = [
+    (fetchpatch {
+      name = "Remove-unnecessary-format-registration.patch";
+      url = "https://github.com/HomeOfVapourSynthEvolution/vsTAAmbk/commit/c707f5a8178b80e3ddc4556b69dd36c0d1928166.patch";
+      sha256 = "sha256-zLSr5POLWvAsHqTFbQOsLQnPpPRl/KjiN/tCr+zIMVg=";
+    })
     ./0001-Skip-OpenCL-test.patch
-    ./0002-Use-format-IDs-from-VapourSynth-R55.patch
   ];
 
   propagatedBuildInputs = with vapoursynthPlugins; [
