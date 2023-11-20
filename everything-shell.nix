@@ -46,7 +46,7 @@ in
         pkgs.vapoursynthPlugins.hqdn3d
         pkgs.vapoursynthPlugins.imwri
         pkgs.vapoursynthPlugins.knlmeanscl
-        # pkgs.vapoursynthPlugins.lsmashsource
+        pkgs.vapoursynthPlugins.lsmashsource
         pkgs.vapoursynthPlugins.median
         pkgs.vapoursynthPlugins.minideen
         pkgs.vapoursynthPlugins.miscfilters-obsolete
