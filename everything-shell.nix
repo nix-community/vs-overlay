@@ -36,7 +36,7 @@ in
         pkgs.vapoursynthPlugins.dfttest
         pkgs.vapoursynthPlugins.eedi2
         pkgs.vapoursynthPlugins.eedi3m
-        # pkgs.vapoursynthPlugins.f3kdb
+        pkgs.vapoursynthPlugins.f3kdb
         pkgs.vapoursynthPlugins.ffms2
         pkgs.vapoursynthPlugins.fft3dfilter
         pkgs.vapoursynthPlugins.fillborders

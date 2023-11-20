@@ -1,0 +1,15 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f1ee4b3..2f10fb3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -6,10 +6,6 @@ add_library(neo-f3kdb SHARED main.cpp src/version.rc ${CODE} ${CODE_IMPL})
+ set_property(TARGET neo-f3kdb PROPERTY CXX_STANDARD 17)
+ option(ENABLE_PAR "Enable C++17 Parallel Execution" ON)
+ 
+-find_package(Git REQUIRED)
+-execute_process(COMMAND ${GIT_EXECUTABLE} describe --first-parent --tags --always OUTPUT_VARIABLE GIT_REPO_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
+-string(REGEX REPLACE "(r[0-9]+).*" "\\1" VERSION ${GIT_REPO_VERSION})
+-
+ configure_file (
+   "${PROJECT_SOURCE_DIR}/src/version.hpp.in"
+   "${PROJECT_SOURCE_DIR}/src/version.hpp"
