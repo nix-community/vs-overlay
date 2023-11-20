@@ -75,7 +75,7 @@ in
         pkgs.vapoursynthPlugins.wwxd
         pkgs.vapoursynthPlugins.znedi3
 
-        # pkgs.vapoursynthPlugins.acsuite
+        pkgs.vapoursynthPlugins.acsuite
         pkgs.vapoursynthPlugins.adjust
         pkgs.vapoursynthPlugins.astdr
         # pkgs.vapoursynthPlugins.awsmfunc
