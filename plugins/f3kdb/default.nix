@@ -1,26 +1,40 @@
-{ lib, stdenv, fetchFromGitHub, wafHook, python3, vapoursynth }:
+{ lib, stdenv, fetchFromGitHub, cmake, pkg-config, python3, vapoursynth, tbb }:
 
-stdenv.mkDerivation rec {
-  pname = "flash3kyuu_deband";
-  version = "unstable-2018-08-09";
+stdenv.mkDerivation (finalAttrs: {
+  pname = "neo_f3kdb";
+  version = "r9";
 
   src = fetchFromGitHub {
-    owner = "SAPikachu";
-    repo = pname;
-    rev = "c57e9d6a535ec9a85fb5415a405f099cbe69f535";
-    sha256 = "1jkp6b29adjfwl94r8snvk4fv2vy0rgvswsyda5f4jb3lf9hds59";
+    owner = "HomeOfAviSynthPlusEvolution";
+    repo = finalAttrs.pname;
+    rev = finalAttrs.version;
+    sha256 = "sha256-MIvKjsemDeyv9qonuJbns0Dau8BjFQ1REppccs7s9JU=";
   };
 
-  wafConfigureFlags = [ "--libdir=${placeholder "out"}/lib/vapoursynth" ];
+  patches = [
+    ./no-git.patch
+  ];
 
-  nativeBuildInputs = [ wafHook python3 ];
-  buildInputs = [ vapoursynth ];
+  nativeBuildInputs = [ cmake pkg-config python3 ];
+  buildInputs = [ vapoursynth tbb ];
+
+  cmakeFlags = [
+    "-DVERSION=${finalAttrs.version}"
+  ];
+
+  installPhase = ''
+    runHook preInstall
+
+    install -D --target-directory="$out/lib/vapoursynth" *.so
+
+    runHook postInstall
+  '';
 
   meta = with lib; {
     description = "A deband library and filter for AviSynth/VapourSynth";
-    homepage = "https://github.com/SAPikachu/flash3kyuu_deband";
+    homepage = "https://github.com/HomeOfAviSynthPlusEvolution/neo_f3kdb";
     license = licenses.gpl3;
     maintainers = with maintainers; [ tadeokondrak ];
     platforms = platforms.all;
   };
-}
+})
