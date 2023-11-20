@@ -1,29 +1,31 @@
-{ lib, stdenv, fetchFromGitHub, pkg-config, which, vapoursynth, ffmpeg, l-smash }:
+{ lib, stdenv, fetchFromGitHub, meson, pkg-config, ninja, vapoursynth, ffmpeg, l-smash }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "lsmashsource";
-  version = "unstable-2019-09-15"; # last (only) release is from 2013 and there has still been development
+  version = "1141.0.0.0";
 
   src = fetchFromGitHub {
-    owner = "VFR-maniac";
+    owner = "HomeOfAviSynthPlusEvolution";
     repo = "L-SMASH-Works";
-    rev = "198cc7814c93209e23f1c6a20daffd651945ba2b";
-    sha256 = "1pb8rrh184pxy5calwfnmm02i0by8vc91c07w4ygj50y8yfqa3br";
+    rev = finalAttrs.version;
+    sha256 = "sha256-fKjskDJmTez273qSV6Wf3o1oINGMPLuMcAWkR1fX7DQ=";
   };
 
-  preConfigure = ''
-    patchShebangs .
-    cd VapourSynth
-  '';
+  sourceRoot = "${finalAttrs.src.name}/VapourSynth";
 
-  nativeBuildInputs = [ pkg-config which ];
+  nativeBuildInputs = [ meson ninja pkg-config ];
   buildInputs = [ vapoursynth ffmpeg l-smash ];
+
+  postPatch = ''
+    substituteInPlace meson.build \
+        --replace "vapoursynth_dep.get_pkgconfig_variable('libdir')" "get_option('libdir')"
+  '';
 
   meta = with lib; {
     description = "L-SMASH source plugin for VapourSynth";
-    homepage = "https://github.com/VFR-maniac/L-SMASH-Works";
+    homepage = "https://github.com/HomeOfAviSynthPlusEvolution/L-SMASH-Works";
     license = with licenses; [ isc lgpl21Plus ];
     maintainers = with maintainers; [ tadeokondrak ];
     platforms = platforms.all;
   };
-}
+})
