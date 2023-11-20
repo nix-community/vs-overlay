@@ -41,7 +41,9 @@ in
     hqdn3d = prev.callPackage ./plugins/hqdn3d { };
     imwri = prev.callPackage ./plugins/imwri { };
     knlmeanscl = prev.callPackage ./plugins/knlmeanscl { };
-    lsmashsource = prev.callPackage ./plugins/lsmashsource { };
+    lsmashsource = prev.callPackage ./plugins/lsmashsource {
+      ffmpeg = prev.ffmpeg_4;
+    };
     median = prev.callPackage ./plugins/median { };
     minideen = prev.callPackage ./plugins/minideen { };
     miscfilters-obsolete = prev.callPackage ./plugins/miscfilters-obsolete { };
