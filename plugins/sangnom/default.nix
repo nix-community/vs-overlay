@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     description = "VapourSynth Single Field Deinterlacer";
     homepage = "https://github.com/dubhater/vapoursynth-sangnom";
     license = licenses.mit;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

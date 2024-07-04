@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     description = "Format conversion tools for VapourSynth";
     homepage = "https://github.com/EleonoreMizo/fmtconv";
     license = licenses.wtfpl;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

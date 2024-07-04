@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     description = "A bézier curve plugin for VapourSynth";
     homepage = "https://github.com/kewenyu/VapourSynth-BezierCurve";
     license = licenses.mit;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

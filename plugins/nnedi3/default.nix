@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     description = "nnedi3 filter for VapourSynth";
     homepage = "https://github.com/dubhater/vapoursynth-nnedi3";
     license = licenses.gpl2;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

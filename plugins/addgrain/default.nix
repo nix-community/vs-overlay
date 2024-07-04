@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     description = "AddGrain filter for VapourSynth";
     homepage = "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-AddGrain";
     license = licenses.gpl2;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

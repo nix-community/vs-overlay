@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     description = "Temporal chroma denoiser for VapourSynth";
     homepage = "https://github.com/dubhater/vapoursynth-cnr2";
     license = licenses.gpl2;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

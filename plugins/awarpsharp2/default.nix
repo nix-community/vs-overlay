@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     description = "VapourSynth edge sharpener plugin";
     homepage = "https://github.com/dubhater/vapoursynth-awarpsharp2";
     license = licenses.isc;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

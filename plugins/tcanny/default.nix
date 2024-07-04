@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
     description = "TCanny filter for VapourSynth";
     homepage = "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny";
     license = licenses.gpl2;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }
