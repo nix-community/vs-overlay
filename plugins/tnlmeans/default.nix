@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     description = "An implementation of the NL-means denoising algorithm";
     homepage = "https://github.com/VFR-maniac/VapourSynth-TNLMeans";
     license = licenses.lgpl2;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

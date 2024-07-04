@@ -28,7 +28,7 @@ in stdenv.mkDerivation rec {
     description = "Autocrop for VapourSynth";
     homepage = "https://github.com/Irrational-Encoding-Wizardry/vapoursynth-autocrop";
     license = licenses.unfree; # no license
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

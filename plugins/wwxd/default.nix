@@ -30,7 +30,7 @@ in stdenv.mkDerivation rec {
     description = "Xvid-like scene change detection for VapourSynth";
     homepage = "https://github.com/dubhater/vapoursynth-wwxd";
     license = licenses.unfree; # no license
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

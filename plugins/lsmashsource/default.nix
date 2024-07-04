@@ -23,7 +23,7 @@ stdenv.mkDerivation {
     description = "L-SMASH source plugin for VapourSynth";
     homepage = "https://github.com/VFR-maniac/L-SMASH-Works";
     license = with licenses; [ isc lgpl21Plus ];
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }

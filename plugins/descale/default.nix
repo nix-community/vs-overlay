@@ -28,7 +28,7 @@ python.pkgs.toPythonModule (stdenv.mkDerivation rec {
     description = "VapourSynth plugin to undo upscaling";
     homepage = "https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale";
     license = licenses.wtfpl;
-    maintainers = with maintainers; [ sbruder tadeokondrak ];
+    maintainers = with maintainers; [ sbruder ];
     platforms = platforms.all;
   };
 })

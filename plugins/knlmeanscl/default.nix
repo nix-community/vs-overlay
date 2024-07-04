@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     description = "An optimized OpenCL implementation of the Non-local means de-noising algorithm";
     homepage = "https://github.com/Khanattila/KNLMeansCL";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ tadeokondrak ];
+    maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
 }
