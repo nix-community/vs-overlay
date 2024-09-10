@@ -94,7 +94,7 @@ in
         pkgs.vapoursynthPlugins.nnedi3_rpow2
         # pkgs.vapoursynthPlugins.rekt
         # pkgs.vapoursynthPlugins.vardefunc
-        # pkgs.vapoursynthPlugins.vsTAAmbk
+        pkgs.vapoursynthPlugins.vsTAAmbk
         pkgs.vapoursynthPlugins.vsgan
         pkgs.vapoursynthPlugins.vsutil
       ])
