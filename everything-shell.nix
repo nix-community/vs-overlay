@@ -28,7 +28,7 @@ in
         pkgs.vapoursynthPlugins.combmask
         pkgs.vapoursynthPlugins.continuityfixer
         pkgs.vapoursynthPlugins.ctmf
-        # pkgs.vapoursynthPlugins.d2vsource
+        pkgs.vapoursynthPlugins.d2vsource
         pkgs.vapoursynthPlugins.dctfilter
         pkgs.vapoursynthPlugins.deblock
         pkgs.vapoursynthPlugins.decross
