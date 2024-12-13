@@ -56,7 +56,7 @@ in
         pkgs.vapoursynthPlugins.nnedi3
         pkgs.vapoursynthPlugins.nnedi3cl
         pkgs.vapoursynthPlugins.ocr
-        # pkgs.vapoursynthPlugins.placebo
+        pkgs.vapoursynthPlugins.placebo
         pkgs.vapoursynthPlugins.readmpls
         pkgs.vapoursynthPlugins.remap
         pkgs.vapoursynthPlugins.removegrain
@@ -78,7 +78,7 @@ in
         # pkgs.vapoursynthPlugins.acsuite
         pkgs.vapoursynthPlugins.adjust
         pkgs.vapoursynthPlugins.astdr
-        # pkgs.vapoursynthPlugins.awsmfunc
+        pkgs.vapoursynthPlugins.awsmfunc
         # pkgs.vapoursynthPlugins.debandshit
         pkgs.vapoursynthPlugins.dfmderainbow
         pkgs.vapoursynthPlugins.edi_rpow2
@@ -92,7 +92,7 @@ in
         pkgs.vapoursynthPlugins.mvsfunc
         pkgs.vapoursynthPlugins.nnedi3_resample
         pkgs.vapoursynthPlugins.nnedi3_rpow2
-        # pkgs.vapoursynthPlugins.rekt
+        pkgs.vapoursynthPlugins.rekt
         # pkgs.vapoursynthPlugins.vardefunc
         # pkgs.vapoursynthPlugins.vsTAAmbk
         pkgs.vapoursynthPlugins.vsgan
