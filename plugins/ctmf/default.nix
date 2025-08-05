@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-CTMF";
@@ -11,7 +19,11 @@ stdenv.mkDerivation rec {
     sha256 = "138gbag1m3cg2bizc5ncxgriz3aw7dkqh1fpky3grlkspn5jc9x5";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   postPatch = ''

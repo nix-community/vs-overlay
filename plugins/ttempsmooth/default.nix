@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-TTempSmooth";
@@ -11,7 +19,11 @@ stdenv.mkDerivation rec {
     sha256 = "0h7wxqr3kpq92pr2kbzjljlkg57l1a40w662p322l4r7587x4zdz";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   postPatch = ''

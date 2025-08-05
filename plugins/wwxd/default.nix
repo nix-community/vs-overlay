@@ -1,8 +1,15 @@
-{ lib, stdenv, fetchFromGitHub, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  pkg-config,
+  vapoursynth,
+}:
 
 let
   ext = stdenv.targetPlatform.extensions.sharedLibrary;
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   pname = "vapoursynth-wwxd";
   version = "1.0";
 

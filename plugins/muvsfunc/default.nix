@@ -1,4 +1,12 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, matplotlib, python, vapoursynth }:
+{
+  lib,
+  vapoursynthPlugins,
+  buildPythonPackage,
+  fetchFromGitHub,
+  matplotlib,
+  python,
+  vapoursynth,
+}:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     descale
@@ -18,14 +26,17 @@ buildPythonPackage rec {
     sha256 = "1yyqdmlsvz5p07bvfkf48mggz6cdk199ai2pr2apvgcr2pchxc90";
   };
 
-  propagatedBuildInputs = [
-    matplotlib
-  ] ++ (with vapoursynthPlugins; [
-    havsfunc
-    mt_lutspa
-    mvsfunc
-    nnedi3_resample
-  ]) ++ propagatedBinaryPlugins;
+  propagatedBuildInputs =
+    [
+      matplotlib
+    ]
+    ++ (with vapoursynthPlugins; [
+      havsfunc
+      mt_lutspa
+      mvsfunc
+      nnedi3_resample
+    ])
+    ++ propagatedBinaryPlugins;
 
   format = "other";
 

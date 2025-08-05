@@ -1,18 +1,38 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, imagemagick, libheif, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  imagemagick,
+  libheif,
+  libtiff,
+  vapoursynth,
+}:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "vs-imwri";
-  version = "1";
+  version = "R2-unstable-2024-09-18";
 
   src = fetchFromGitHub {
     owner = "vapoursynth";
-    repo = pname;
-    rev = "R${version}";
-    sha256 = "sha256-3nNX7OxAwHPJ6JwaTZJTH13eWktPI/XBmEC/OETCun4=";
+    repo = finalAttrs.pname;
+    rev = "da17f01b9581a78ee5b54edf5b6f47d5f8e3d2f5";
+    hash = "sha256-0J/2+pvxROFIERRhr3JeiI57F2g/aOZ2+7eX7Jw+l5g=";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ imagemagick libheif vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    imagemagick
+    libheif
+    libtiff
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \
@@ -26,4 +46,4 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ sbruder ];
     platforms = platforms.all;
   };
-}
+})

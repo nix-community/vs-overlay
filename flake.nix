@@ -1,24 +1,49 @@
 {
   description = "vs-overlay";
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  outputs = { self, nixpkgs }:
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.kyouma.net"
+    ];
+    extra-trusted-public-keys = [
+      "cache.kyouma.net:Frjwu4q1rnwE/MnSTmX9yx86GNA/z3p/oElGvucLiZg="
+    ];
+    builders-use-substitutes = true;
+  };
+
+  outputs =
+    { self, nixpkgs }@inputs:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "i686-linux" "x86_64-darwin" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
-      nixpkgsFor = forAllSystems (system:
+      inherit (nixpkgs) lib;
+      buildPlatforms = import ./lib/platforms.nix inputs;
+      eachSystem = uwu: lib.mapAttrs uwu buildPlatforms;
+      pkgs = eachSystem (
+        system: _:
         import nixpkgs {
           inherit system;
-          overlays = [ self.overlay ];
-          config.allowUnfree = true;
+          overlays = [ self.overlays.default ];
+          config = {
+            allowUnfree = true;
+            allowUnsupportedSystem = true;
+          };
         }
       );
+
     in
     {
-      overlay = import ./default.nix;
-      packages = forAllSystems (system: {
-        inherit (nixpkgsFor.${system})
-          getnative
-          vapoursynthPlugins;
-      });
+      overlays.default = import ./default.nix;
+      formatter = eachSystem (system: _: pkgs.${system}.nixfmt-tree);
+
+      packages = eachSystem (
+        system: platform:
+        lib.filterAttrs (_: pkg: lib.meta.availableOn platform pkg) (
+          {
+            inherit (pkgs.${system}) getnative;
+          }
+          // lib.filterAttrs (_: lib.isDerivation) pkgs.${system}.vapoursynthPlugins
+        )
+      );
+
+      hydraJobs = { inherit (self) packages; };
     };
 }

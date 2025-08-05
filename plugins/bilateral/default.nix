@@ -1,21 +1,29 @@
-{ lib, stdenv, fetchFromGitHub, which, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  pkg-config,
+  which,
+  vapoursynth,
+}:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "vapoursynth-bilateral";
   version = "3";
 
   src = fetchFromGitHub {
     owner = "HomeOfVapourSynthEvolution";
     repo = "VapourSynth-Bilateral";
-    rev = "r${version}";
+    rev = "r${finalAttrs.version}";
     sha256 = "05rhbg84z74rk3jcxa6abgqcqnjzgmjw03wljxa55jc358h9a6f0";
   };
 
   preConfigure = "chmod +x configure";
   dontAddPrefix = true;
-  configureFlags = [ "--install=$(out)/lib/vapoursynth" ];
+  # fix this
+  configureFlags = [ "--install=$(out)/lib/vapoursynth" "--target=arch=native" ];
 
-  nativeBuildInputs = [ which ];
+  nativeBuildInputs = [ which pkg-config ];
   buildInputs = [ vapoursynth ];
 
   meta = with lib; {
@@ -25,4 +33,4 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ ];
     platforms = platforms.all;
   };
-}
+})

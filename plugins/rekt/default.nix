@@ -1,14 +1,20 @@
-{ lib, buildPythonPackage, fetchFromGitLab, vapoursynthPlugins, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitLab,
+  vapoursynthPlugins,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "rekt";
-  version = "39";
+  version = "0-unstable-2022-03-02";
 
   src = fetchFromGitLab {
     owner = "Ututu";
     repo = pname;
-    rev = "153863e07779219c48cf1223bfdba86c47bc43be";
-    sha256 = "1h83dqwn71pfqxx8hppbqc7i9mh0a2pbpydsm8jvf538z9nr2sl9";
+    rev = "ca1b679317bb096a96bf676111d855ca4c2c6f63";
+    sha256 = "sha256-zmtxdFMoZfYNgYjF5lb3824Be3c9K23RC4Y52F633Wc=";
   };
 
   # This does not depend on vapoursynth (since this is used from within

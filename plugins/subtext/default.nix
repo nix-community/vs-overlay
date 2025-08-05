@@ -1,4 +1,14 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, ffmpeg, libass, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  ffmpeg,
+  libass,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "subtext";
@@ -11,8 +21,16 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-Tux8WFbUn4Bt1EL9r+f+Y/av9w9Y23gc79m1JcZWj50=";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ ffmpeg libass vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    ffmpeg
+    libass
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

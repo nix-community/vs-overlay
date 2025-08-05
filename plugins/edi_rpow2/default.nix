@@ -1,4 +1,11 @@
-{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchgit,
+  vapoursynthPlugins,
+  python,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "edi_rpow2";
@@ -40,6 +47,7 @@ buildPythonPackage rec {
     homepage = "https://gist.github.com/YamashitaRen/020c497524e794779d9c";
     license = licenses.unfree; # no license
     maintainers = with maintainers; [ sbruder ];
-    platforms = platforms.all;
+    # eedi3m does inline asm
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

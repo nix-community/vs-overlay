@@ -1,4 +1,13 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, rich, toolz, vapoursynth, pythonOlder }:
+{
+  lib,
+  vapoursynthPlugins,
+  buildPythonPackage,
+  fetchFromGitHub,
+  rich,
+  toolz,
+  vapoursynth,
+  pythonOlder,
+}:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     adaptivegrain
@@ -35,18 +44,20 @@ buildPythonPackage rec {
         --replace "VapourSynth>=51" "" \
   '';
 
-  propagatedBuildInputs = [
-    rich
-    toolz
-  ] ++ (with vapoursynthPlugins; [
-    debandshit
-    edi_rpow2
-    havsfunc
-    kagefunc
-    mvsfunc
-    vsTAAmbk
-    vsutil
-  ]);
+  propagatedBuildInputs =
+    [
+      rich
+      toolz
+    ]
+    ++ (with vapoursynthPlugins; [
+      debandshit
+      edi_rpow2
+      havsfunc
+      kagefunc
+      mvsfunc
+      vsTAAmbk
+      vsutil
+    ]);
 
   checkInputs = [ (vapoursynth.withPlugins propagatedBinaryPlugins) ];
   pythonImportsCheck = [ "lvsfunc" ];

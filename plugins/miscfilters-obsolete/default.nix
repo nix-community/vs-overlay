@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, tesseract, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  tesseract,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vs-miscfilters-obsolete";
@@ -11,7 +20,11 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-WEhpBTNEamNfrNXZxtpTGsOclPMRu+yBzNJmDnU0wzQ=";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   postPatch = ''

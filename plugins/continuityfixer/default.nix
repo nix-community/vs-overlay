@@ -1,8 +1,14 @@
-{ lib, stdenv, fetchFromGitHub, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  vapoursynth,
+}:
 
 let
   ext = stdenv.targetPlatform.extensions.sharedLibrary;
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   pname = "vs-continuityfixer";
   version = "6.1";
 
@@ -29,6 +35,6 @@ in stdenv.mkDerivation rec {
     homepage = "https://github.com/MonoS/VS-ContinuityFixer";
     license = licenses.unfree; # no license
     maintainers = with maintainers; [ ];
-    platforms = platforms.all;
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

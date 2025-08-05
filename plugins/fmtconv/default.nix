@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, autoreconfHook, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  autoreconfHook,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "fmtconv";

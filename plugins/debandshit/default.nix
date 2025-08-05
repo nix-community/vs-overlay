@@ -1,7 +1,14 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python, vapoursynth }:
+{
+  lib,
+  vapoursynthPlugins,
+  buildPythonPackage,
+  fetchFromGitHub,
+  python,
+  vapoursynth,
+}:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
-    f3kdb
+    neo_f3kdb
     fmtconv
     #rgsf
   ];
@@ -17,11 +24,13 @@ buildPythonPackage rec {
     sha256 = "0gwpjglm74y6a7x9ws7is7algnwm3i0ds65nz3ki8faigx1jh52a";
   };
 
-  propagatedBuildInputs = (with vapoursynthPlugins; [
-    fvsfunc
-    muvsfunc
-    mvsfunc
-  ]) ++ propagatedBinaryPlugins;
+  propagatedBuildInputs =
+    (with vapoursynthPlugins; [
+      fvsfunc
+      muvsfunc
+      mvsfunc
+    ])
+    ++ propagatedBinaryPlugins;
 
   format = "other";
 
@@ -44,6 +53,7 @@ buildPythonPackage rec {
     homepage = "https://github.com/LightArrowsEXE/debandshit";
     license = licenses.mit;
     maintainers = with maintainers; [ sbruder ];
-    platforms = platforms.all;
+    # Tcanny uses inline x86 asm
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

@@ -1,4 +1,14 @@
-{ lib, stdenv, fetchFromGitHub, fetchpatch, meson, ninja, pkg-config, fftwFloat, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  fetchpatch,
+  meson,
+  ninja,
+  pkg-config,
+  fftwFloat,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-DFTTest";
@@ -19,8 +29,15 @@ stdenv.mkDerivation rec {
     })
   ];
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ fftwFloat vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    fftwFloat
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

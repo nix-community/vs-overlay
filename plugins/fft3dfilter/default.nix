@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, fftwFloat, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  fftwFloat,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-FFT3DFilter";
@@ -11,8 +20,15 @@ stdenv.mkDerivation rec {
     sha256 = "0s2wf1i733srsqgz6fhs7kyra55pib9n5xkx9hpqjjv4sxlnfc9l";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ fftwFloat vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    fftwFloat
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, autoreconfHook, pkg-config, vapoursynth, xvidcore }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  autoreconfHook,
+  pkg-config,
+  vapoursynth,
+  xvidcore,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-scxvid";
@@ -13,8 +21,14 @@ stdenv.mkDerivation rec {
 
   configureFlags = [ "--libdir=$(out)/lib/vapoursynth" ];
 
-  nativeBuildInputs = [ pkg-config autoreconfHook ];
-  buildInputs = [ vapoursynth xvidcore ];
+  nativeBuildInputs = [
+    pkg-config
+    autoreconfHook
+  ];
+  buildInputs = [
+    vapoursynth
+    xvidcore
+  ];
 
   meta = with lib; {
     description = "Scene change detection plugin for VapourSynth using xvid";

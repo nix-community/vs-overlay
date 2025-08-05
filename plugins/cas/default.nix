@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-CAS";
@@ -11,7 +19,11 @@ stdenv.mkDerivation rec {
     sha256 = "0zcqz6vgfqy4lshc0cvf8hijs2y7c4nvm5nzmb8fl8si38d96rf5";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   postPatch = ''

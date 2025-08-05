@@ -1,4 +1,9 @@
-{ lib, stdenv, fetchFromGitHub, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "znedi3";

@@ -1,11 +1,12 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, meson
-, ninja
-, cmake
-, pkg-config
-, vapoursynth
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  cmake,
+  pkg-config,
+  vapoursynth,
 }:
 
 stdenv.mkDerivation rec {
@@ -35,6 +36,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/dubhater/vapoursynth-decross";
     license = licenses.gpl2;
     maintainers = with maintainers; [ aidalgol ];
-    platforms = platforms.all;
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

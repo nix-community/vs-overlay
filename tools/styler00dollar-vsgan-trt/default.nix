@@ -1,11 +1,12 @@
-{ lib
-, fetchFromGitHub
-, buildPythonPackage
-, python3
+{
+  lib,
+  fetchFromGitHub,
+  buildPythonPackage,
+  python3,
   # Needed to explicitly get the VapourSynth *Python* package.
-, python3Packages
-, numpy
-, torch
+  python3Packages,
+  numpy,
+  torch,
 }:
 
 let

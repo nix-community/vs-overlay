@@ -1,4 +1,12 @@
-{ fetchFromGitHub, lib, meson, ninja, pkg-config, stdenv, vapoursynth }:
+{
+  fetchFromGitHub,
+  lib,
+  meson,
+  ninja,
+  pkg-config,
+  stdenv,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-median";
@@ -11,7 +19,11 @@ stdenv.mkDerivation rec {
     sha256 = "16x0ig17kg5xkh9qwv9fx4nmpd6cs53nr4jj1bsh0dm76rlwsynv";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   mesonFlags = [ "--libdir=${placeholder "out"}/lib/vapoursynth" ];

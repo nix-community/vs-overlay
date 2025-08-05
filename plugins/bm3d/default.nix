@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth, fftwSinglePrec }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+  fftwSinglePrec,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-bm3d";
@@ -11,8 +20,15 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-i7Kk7uFt2Wo/EWpVkGyuYgGZxBuQgOT3JM+WCFPHVrc=";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ vapoursynth fftwSinglePrec ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    vapoursynth
+    fftwSinglePrec
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

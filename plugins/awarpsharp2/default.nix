@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-awarpsharp2";
@@ -13,7 +21,11 @@ stdenv.mkDerivation rec {
 
   mesonFlags = [ "--libdir=${placeholder "out"}/lib/vapoursynth" ];
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   meta = with lib; {

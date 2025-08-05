@@ -1,20 +1,34 @@
-{ lib, stdenv, fetchFromGitHub, autoreconfHook, pkg-config, ffmpeg, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  autoreconfHook,
+  pkg-config,
+  ffmpeg,
+  vapoursynth,
+}:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "d2vsource";
-  version = "1.2";
+  version = "1.3";
 
   src = fetchFromGitHub {
     owner = "dwbuiten";
-    repo = pname;
-    rev = "v${version}";
-    sha256 = "1ax20qs1hba70r07pdw3gs4gylwb2ca4iz9ycmd9i5rvxaxy4hmp";
+    repo = finalAttrs.pname;
+    rev = "v${finalAttrs.version}";
+    sha256 = "sha256-iq03BbrFqTB7n9gExLkp16TxgDZdUB4Ne8LUU69AOWc=";
   };
 
   configureFlags = [ "--libdir=$(out)/lib/vapoursynth" ];
 
-  nativeBuildInputs = [ autoreconfHook pkg-config ];
-  buildInputs = [ ffmpeg vapoursynth ];
+  nativeBuildInputs = [
+    autoreconfHook
+    pkg-config
+  ];
+  buildInputs = [
+    ffmpeg
+    vapoursynth
+  ];
 
   meta = with lib; {
     description = "D2V parser and decoder for VapourSynth";
@@ -23,4 +37,4 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ sbruder ];
     platforms = platforms.all;
   };
-}
+})

@@ -1,10 +1,11 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, meson
-, ninja
-, pkg-config
-, vapoursynth
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
 }:
 
 stdenv.mkDerivation rec {
@@ -33,6 +34,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/dubhater/vapoursynth-temporalsoften2";
     license = licenses.lgpl2;
     maintainers = with maintainers; [ aidalgol ];
-    platforms = platforms.all;
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

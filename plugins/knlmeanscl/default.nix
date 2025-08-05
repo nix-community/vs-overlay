@@ -1,4 +1,14 @@
-{ lib, stdenv, fetchFromGitHub, which, pkg-config, vapoursynth, boost, opencl-headers, ocl-icd }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  which,
+  pkg-config,
+  vapoursynth,
+  boost,
+  opencl-headers,
+  ocl-icd,
+}:
 
 stdenv.mkDerivation rec {
   pname = "knlmeanscl";
@@ -14,8 +24,16 @@ stdenv.mkDerivation rec {
   dontAddPrefix = true;
   configureFlags = [ "--install=$(out)/lib/vapoursynth" ];
 
-  nativeBuildInputs = [ which pkg-config ];
-  buildInputs = [ vapoursynth boost opencl-headers ocl-icd ];
+  nativeBuildInputs = [
+    which
+    pkg-config
+  ];
+  buildInputs = [
+    vapoursynth
+    boost
+    opencl-headers
+    ocl-icd
+  ];
 
   meta = with lib; {
     description = "An optimized OpenCL implementation of the Non-local means de-noising algorithm";

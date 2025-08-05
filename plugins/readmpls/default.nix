@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, libbluray, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  libbluray,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-ReadMpls";
@@ -11,8 +20,15 @@ stdenv.mkDerivation rec {
     sha256 = "0v1hs0wgpv9raacsslmwhsw81c49c52mhc6py2ydxb0b359rqg2n";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ libbluray vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    libbluray
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

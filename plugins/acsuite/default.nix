@@ -1,4 +1,10 @@
-{ lib, buildPythonPackage, fetchFromGitHub, ffmpeg, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  ffmpeg,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "acsuite";
@@ -23,8 +29,10 @@ buildPythonPackage rec {
         --replace "VapourSynth" ""
   '';
 
-  checkInputs = [
+  nativeCheckInputs = [
     ffmpeg # the test depdends on ffmpeg from PATH
+  ];
+  checkInputs = [
     vapoursynth
   ];
   checkPhase = ''

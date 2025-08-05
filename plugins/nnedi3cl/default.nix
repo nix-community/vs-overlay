@@ -1,4 +1,15 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, boost, ocl-icd, opencl-headers, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  boost,
+  ocl-icd,
+  opencl-headers,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "VapourSynth-NNEDI3CL";
@@ -11,8 +22,17 @@ stdenv.mkDerivation rec {
     sha256 = "0j99ihxy295plk1x5flgwzjkcjwyzqdmxnxmda9r632ksq9flvyd";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ boost ocl-icd opencl-headers vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    boost
+    ocl-icd
+    opencl-headers
+    vapoursynth
+  ];
 
   # https://github.com/NixOS/nixpkgs/issues/86131
   BOOST_INCLUDEDIR = "${lib.getDev boost}/include";

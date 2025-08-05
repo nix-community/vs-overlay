@@ -1,4 +1,11 @@
-{ lib, buildPythonPackage, fetchFromGitHub, fetchpatch, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  fetchpatch,
+  python,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "vapoursynth-adjust";

@@ -1,10 +1,11 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, cmake
-, vapoursynth
-, cudatoolkit
-, cudaPackages
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  vapoursynth,
+  cudatoolkit,
+  cudaPackages,
 }:
 
 stdenv.mkDerivation rec {

@@ -1,4 +1,12 @@
-{ lib, buildPythonPackage, fetchgit, numpy, vapoursynthPlugins, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchgit,
+  numpy,
+  vapoursynthPlugins,
+  python,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "mt_lutspa";

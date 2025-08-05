@@ -1,4 +1,11 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  vapoursynthPlugins,
+  python,
+  vapoursynth,
+}:
 let
   plugins_native = with vapoursynthPlugins; [
     addgrain
@@ -51,7 +58,7 @@ buildPythonPackage rec {
     runHook postInstall
   '';
 
-  checkInputs = [ (vapoursynth.withPlugins plugins_native ) ];
+  checkInputs = [ (vapoursynth.withPlugins plugins_native) ];
   checkPhase = ''
     PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
@@ -62,6 +69,7 @@ buildPythonPackage rec {
     homepage = "https://github.com/HomeOfVapourSynthEvolution/havsfunc";
     license = licenses.unfree; # no license
     maintainers = with maintainers; [ sbruder ];
-    platforms = platforms.all;
+    # eedi3m does inline asm
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

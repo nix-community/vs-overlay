@@ -1,4 +1,11 @@
-{ lib, buildPythonPackage, fetchFromGitHub, vapoursynthPlugins, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  vapoursynthPlugins,
+  python,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "mvsfunc";

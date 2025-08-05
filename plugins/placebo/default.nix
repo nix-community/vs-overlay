@@ -1,23 +1,44 @@
-{ lib, stdenv, fetchFromGitHub, fetchpatch, meson, ninja, pkg-config, libplacebo, vapoursynth, vulkan-headers, vulkan-loader }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  fetchpatch,
+  meson,
+  ninja,
+  pkg-config,
+  libplacebo,
+  vapoursynth,
+  vulkan-headers,
+  vulkan-loader,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vs-placebo";
-  version = "1.4.2";
+  version = "1.4.4";
 
   src = fetchFromGitHub {
     owner = "Lypheo";
     repo = pname;
     rev = version;
-    sha256 = "sha256-nerS1z/Ch/UqcmcY2gNL1Xl3hs1/etEAODj8pzrSuEE=";
+    hash = "sha256-1DTdllP+Y4s+t2PMnpcgeLjOxOyyV/yhFSxPP9/Gy9M=";
     fetchSubmodules = true;
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ libplacebo vapoursynth vulkan-headers vulkan-loader ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    libplacebo
+    vapoursynth
+    vulkan-headers
+    vulkan-loader
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \
-        --replace "vapoursynth_dep.get_pkgconfig_variable('libdir')" "get_option('libdir')"
+        --replace "vapoursynth_dep.get_variable(pkgconfig: 'libdir')" "get_option('libdir')"
   '';
 
   meta = with lib; {

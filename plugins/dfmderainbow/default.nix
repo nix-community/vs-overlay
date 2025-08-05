@@ -1,9 +1,10 @@
-{ lib
-, fetchFromGitHub
-, buildPythonPackage
-, python
-, vapoursynthPlugins
-, vapoursynth
+{
+  lib,
+  fetchFromGitHub,
+  buildPythonPackage,
+  python,
+  vapoursynthPlugins,
+  vapoursynth,
 }:
 
 let
@@ -38,7 +39,7 @@ buildPythonPackage rec {
     runHook postInstall
   '';
 
-  checkInputs = [ (vapoursynth.withPlugins plugins_native ) ];
+  checkInputs = [ (vapoursynth.withPlugins plugins_native) ];
   checkPhase = ''
     PYTHONPATH=$out/${python.sitePackages}:$PYTHONPATH
   '';
@@ -52,6 +53,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/dubhater/vapoursynth-astdr";
     license = licenses.unfree; # no license
     maintainers = with maintainers; [ aidalgol ];
-    platforms = platforms.all;
+    platforms = with platforms; x86 ++ x86_64;
   };
 }

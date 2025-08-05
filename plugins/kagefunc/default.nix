@@ -1,4 +1,11 @@
-{ lib, vapoursynthPlugins, buildPythonPackage, fetchFromGitHub, python, vapoursynth }:
+{
+  lib,
+  vapoursynthPlugins,
+  buildPythonPackage,
+  fetchFromGitHub,
+  python,
+  vapoursynth,
+}:
 let
   propagatedBinaryPlugins = with vapoursynthPlugins; [
     adaptivegrain
@@ -27,11 +34,13 @@ buildPythonPackage rec {
     ./skip-opencl-test.diff
   ];
 
-  propagatedBuildInputs = (with vapoursynthPlugins; [
-    fvsfunc
-    mvsfunc
-    vsutil
-  ]) ++ propagatedBinaryPlugins;
+  propagatedBuildInputs =
+    (with vapoursynthPlugins; [
+      fvsfunc
+      mvsfunc
+      vsutil
+    ])
+    ++ propagatedBinaryPlugins;
 
   format = "other";
 

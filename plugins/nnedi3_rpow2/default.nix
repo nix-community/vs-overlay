@@ -1,4 +1,11 @@
-{ lib, buildPythonPackage, fetchgit, vapoursynthPlugins, python, vapoursynth }:
+{
+  lib,
+  buildPythonPackage,
+  fetchgit,
+  vapoursynthPlugins,
+  python,
+  vapoursynth,
+}:
 
 buildPythonPackage rec {
   pname = "nnedi3_rpow2";

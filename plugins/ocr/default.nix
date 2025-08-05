@@ -1,4 +1,13 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, tesseract, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  tesseract,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vs-ocr";
@@ -11,8 +20,15 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-N2+S4YRMzjpFdRnCXGgvxU1rUKIjmHe7ylzBrB4CPL8=";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
-  buildInputs = [ tesseract vapoursynth ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
+  buildInputs = [
+    tesseract
+    vapoursynth
+  ];
 
   postPatch = ''
     substituteInPlace meson.build \

@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchFromGitHub, which, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  which,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-tnlmeans";

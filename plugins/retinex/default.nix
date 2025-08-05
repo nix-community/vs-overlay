@@ -1,4 +1,12 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, vapoursynth }:
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+  vapoursynth,
+}:
 
 stdenv.mkDerivation rec {
   pname = "vapoursynth-retinex";
@@ -11,7 +19,11 @@ stdenv.mkDerivation rec {
     sha256 = "108jmawfn87ydabpxkb0srbk2r8vgpfn0kiby4g56msbc0rpvc6g";
   };
 
-  nativeBuildInputs = [ meson ninja pkg-config ];
+  nativeBuildInputs = [
+    meson
+    ninja
+    pkg-config
+  ];
   buildInputs = [ vapoursynth ];
 
   postPatch = ''
@@ -22,7 +34,8 @@ stdenv.mkDerivation rec {
   installPhase =
     let
       ext = stdenv.targetPlatform.extensions.sharedLibrary;
-    in ''
+    in
+    ''
       install -D libretinex${ext} $out/lib/vapoursynth/libretinex${ext}
     '';
 
