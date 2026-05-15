@@ -96,7 +96,7 @@ nix-build -E '
 
 ## Usage as a flake
 
-> Note: [Flakes](https://nixos.wiki/wiki/Flakes) are an experimental Nix feature intended to improve reproducibility.
+> Note: [Flakes](https://wiki.nixos.org/wiki/Flakes) are an experimental Nix feature intended to improve reproducibility.
 >
 > When this repository is used as a flake,
 > it uses a pinned version of Nixpkgs rather than the system set.  
